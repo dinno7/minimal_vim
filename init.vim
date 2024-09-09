@@ -243,7 +243,7 @@ endfunction
 "}
 
 "{ Variables
-let mapleader = ','
+let mapleader = ' '
 
 " Do not load netrw by default since I do not use it, see
 " https://github.com/bling/dotvim/issues/4
@@ -334,6 +334,8 @@ nnoremap q; q:
 
 " Quicker <Esc> in insert mode
 inoremap <silent> jk <Esc>
+inoremap <silent> jj <Esc>
+inoremap <silent> kk <Esc>
 
 " Turn the word under cursor to upper case
 inoremap <silent> <c-u> <Esc>viwUea
@@ -432,6 +434,9 @@ nnoremap <silent> <M-up> <C-w>k
 " to reselect previous visual area, see https://superuser.com/q/310417/736190
 xnoremap < <gv
 xnoremap > >gv
+
+nnoremap > >>
+nnoremap < <<
 
 " When completion menu is shown, use <cr> to select an item
 " and do not add an annoying newline. Otherwise, <enter> is what it is.
