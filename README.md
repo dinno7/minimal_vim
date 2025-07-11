@@ -19,7 +19,7 @@ To use this config for Neovim, use the following command:
 
 ```bash
 mkdir -p ~/.config/nvim && cd ~/.config/nvim
-git clone https://github.com/jdhao/minimal_vim.git .
+git clone https://github.com/dinno7/minimal_vim .
 ```
 
 ## For Vim
@@ -28,5 +28,5 @@ git clone https://github.com/jdhao/minimal_vim.git .
 # to avoid default conf interfering with this conf
 mv ~/.vimrc ~/.vimrc.bak
 mkdir -p ~/.vim && cd ~/.vim
-git clone https://github.com/jdhao/minimal_vim.git .
+git clone https://github.com/dinno7/minimal_vim .
 ```
