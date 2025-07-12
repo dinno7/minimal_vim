@@ -220,7 +220,7 @@ function! VimFolds(lnum)
     let l:cur_line = getline(a:lnum)
     let l:next_line = getline(a:lnum+1)
 
-    if l:cur_line =~# '^"{'
+    if l:cur_line =~# '^"{
         return '>' . (matchend(l:cur_line, '"{*') - 1)
     else
         if l:cur_line ==# '' && (matchend(l:next_line, '"{*') - 1) == 1
@@ -338,7 +338,7 @@ inoremap <silent> jj <Esc>
 inoremap <silent> kk <Esc>
 
 " Turn the word under cursor to upper case
-inoremap <silent> <c-u> <Esc>viwUea
+inoremap <silent> <c-u> <esc>viw~ea
 
 " Turn the current word into title case
 inoremap <silent> <c-t> <Esc>b~lea
@@ -675,7 +675,7 @@ set statusline+=%<
 " Separation point between left and right aligned items.
 set statusline+=%=
 
-set statusline+=%{&filetype!=#''?&filetype.'\ ':'none\ '}
+set statusline+=%{&filetype!=#''?&filetype.'.\ ':'none\ '}
 
 " Encoding & Fileformat
 set statusline+=%#WarningMsg#
@@ -762,3 +762,63 @@ endfunction
 " 2. https://gist.github.com/autrimpo/f40e4eda233977dd3a619c6083d9bebd
 " 3. https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
 "}
+
+" Added from Neovim config
+nnoremap j gj
+nnoremap k gk
+nnoremap o zzo
+nnoremap O zzO
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+vnoremap p "_dP
+nnoremap x "_x
+vnoremap x "_x
+vnoremap // y/<C-R>"<CR>
+nnoremap <leader>cf :let @+ = expand("%")<CR>
+nnoremap <leader>cp :let @+ = expand("%:p")<CR>
+nnoremap Q q
+nnoremap <leader>sn :noautocmd w <CR>
+nnoremap <leader>a ggVG
+nnoremap <leader>ya :%y+<CR>
+nnoremap <leader>V `[V`]`
+nnoremap <A-Up> :resize +5<CR>
+nnoremap <A-Down> :resize -5<CR>
+nnoremap <A-Right> :vertical resize -5<CR>
+nnoremap <A-Left> :vertical resize +5<CR>
+nnoremap <leader>sv <C-w>v
+nnoremap <leader>ss <C-w>s
+nnoremap <leader>se <C-w>=
+nnoremap <leader>sx :close<CR>
+nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>tx :tabclose<CR>
+nnoremap <leader>tl :tabn<CR>
+nnoremap <leader>th :tabp<CR>
+nnoremap <A-C-l> :tabn<CR>
+nnoremap <A-C-h> :tabp<CR>
+nnoremap <leader>o o<ESC>
+nnoremap <leader>O O<ESC>
+inoremap <M-C-V> <C-v>
+inoremap <C-v> <ESC>pa
+inoremap <C-c> <C-O>:yank<CR>
+nnoremap <C-c> :yank<CR>
+vnoremap <C-c> :yank<CR>
+inoremap <C-x> <esc>0Da
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <C-O>:w<CR>
+vnoremap <C-s> <C-C>:w<CR>
+inoremap <C-z> <C-O>:undo<CR>
+nnoremap <C-z> :undo<CR>
+vnoremap <C-z> u
+inoremap <M-C-Z> <C-O>:redo<CR>
+nnoremap <M-C-Z> :redo<CR>
+vnoremap <M-C-Z> <C-R>
+inoremap <C-Del> <ESC>ldwha
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-b> <ESC>^i
+inoremap <C-e> <End>
+
